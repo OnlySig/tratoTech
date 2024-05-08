@@ -1,0 +1,24 @@
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-image: url('../../assets/footer.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    bottom: 0;
+    height: 80px;
+    width: 100%;
+    padding: 0 50px;
+    div {
+        display: flex;
+        gap: 50px;
+    }
+    span {
+        color: #FFF;
+        font-size: 18px;
+        text-align: right;
+    }
+    a {
+        color: #FFF;
+    }
+}

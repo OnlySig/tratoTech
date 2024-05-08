@@ -19,7 +19,7 @@ const NavBar = () => {
         </div>
       </div>
       <div className={styles.busca} >
-        <Input isLabel title="test" type="text" placeholder="placeholder test" value={test} setValue={setTest} id="test" />
+        <Input type="text" placeholder="placeholder test" value={test} setValue={setTest} id="test" />
       </div>
       <div className={styles.icones}>
         <Link to={'/carrinho'}>
