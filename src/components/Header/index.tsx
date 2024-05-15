@@ -3,8 +3,8 @@ import styles from "./Header.module.scss"
 interface HeaderProps {
     title: string
     descricao: string
-    className: string
-    img: string
+    className?: string
+    img?: string
 }
 
 const Header = ({ title, className = '', descricao, img } : HeaderProps) => {

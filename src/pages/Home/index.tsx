@@ -10,8 +10,7 @@ interface homeCategoria {
 }
 const Home = () => {
   const nav = useNavigate()
-  const categorias : ICategoria[] = useSelector<homeCategoria>(state => state.categorias)
-  console.log(categorias)
+  const categorias : ICategoria[] = useSelector((state : homeCategoria) => state.categorias)
   return (
     <div>
       <Header 

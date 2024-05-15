@@ -1,29 +1,28 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Logo from '../../assets/logo.svg'
 import styles from './NavBar.module.scss'
 import { RiShoppingCart2Line, RiShoppingCart2Fill } from 'react-icons/ri'
 import Input from '../../components/Input'
-import { useState } from 'react'
 
 const NavBar = () => {
-  const [test, setTest] = useState<string>('')
-
+  const { pathname } = useLocation()
+  const nav = useNavigate()
   return (
     <nav className={styles.nav}>
-      <img className={styles.logo} src={Logo} alt="logo do trato tech" />
+      <img className={styles.logo} src={Logo} alt="logo do trato tech" onClick={()=>nav('/')}/>
       <div className={styles.links}>
         <div>
-          <Link to={'/'} className={window.location.pathname === '/' ?`${styles.selected} ${styles.link}` : `${styles.link}`}>
+          <Link to={'/'} className={pathname === '/' ?`${styles.selected} ${styles.link}` : `${styles.link}`}>
             Pagina Inicial
           </Link>
         </div>
       </div>
       <div className={styles.busca} >
-        <Input type="text" placeholder="placeholder test" value={test} setValue={setTest} id="test" />
+        <Input type="text" placeholder="O que você procura?" id="test" />
       </div>
       <div className={styles.icones}>
         <Link to={'/carrinho'}>
-          {window.location.pathname === '/carrinho' ? <RiShoppingCart2Fill color='#FFF' size='24px'/> : <RiShoppingCart2Line color='#FFF' size='24px'/>}
+          {pathname === '/carrinho' ? <RiShoppingCart2Fill color='#FFF' size='24px'/> : <RiShoppingCart2Line color='#FFF' size='24px'/>}
         </Link>
       </div>
     </nav>
