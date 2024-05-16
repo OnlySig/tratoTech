@@ -1,0 +1,37 @@
+.anunciarHeader {
+    grid-template-columns: 1fr;
+    text-align: center;
+    div:last-child {
+        display: none;
+    }
+    button {
+        display: none;
+    }
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    &-outlet {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+    }
+}
+.formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 20px auto;
+    flex: 1;
+    width: 70%;
+    select {
+        border: none;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        padding: 10px 20px;
+        width: 100%;
+    }
+}

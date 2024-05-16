@@ -18,7 +18,7 @@ const NavBar = () => {
         </div>
       </div>
       <div className={styles.busca} >
-        <Input type="text" placeholder="O que você procura?" id="test" />
+        <Input placeholder="O que você procura?" id="inputBusca" isBusca/>
       </div>
       <div className={styles.icones}>
         <Link to={'/carrinho'}>
