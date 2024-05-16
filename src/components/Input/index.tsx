@@ -8,18 +8,18 @@ interface InputProps {
     placeholder?: string
     isLabel?: boolean
     title?: string
-    value?: string
-    setValue?: (e: string)=>void
+    value?: string | number
+    setValue?: React.Dispatch<React.SetStateAction<string>>
+    isBusca?: boolean
     type?: string
     id: string
-    isBusca: boolean
 }
 
 interface buscaProps {
     busca: string
 }
 
-const Input = ({ type = 'text', placeholder, isLabel, title, id, isBusca, setValue, value } : InputProps) => {
+const Input = ({ type = 'text', placeholder, isLabel, title, id, isBusca = false, value } : InputProps) => {
     const { pathname } = useLocation()
     const busca = useSelector((state:buscaProps)=>state.busca)
     const dispatch = useDispatch()
@@ -38,7 +38,7 @@ const Input = ({ type = 'text', placeholder, isLabel, title, id, isBusca, setVal
                     type={type}
                     placeholder={placeholder} 
                     value={isBusca ? busca : value} 
-                    onChange={e => isBusca ? dispatch(mudarBusca(e.target.value)) : setValue!(e.target.value)}/>
+                    onChange={e => isBusca && dispatch(mudarBusca(e.target.value))}/>
             </div>
         </>
     )
