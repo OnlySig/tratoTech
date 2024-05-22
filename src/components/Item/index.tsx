@@ -43,9 +43,7 @@ const Item = ({ item, noCarrinho } : ItemProps ) => {
     //const [imgDefault, setImgDefault] = useState(item.foto)
     const loadImgDefault = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
         e.currentTarget.src = noImage
-        console.log('a')
     }
-
     const componentEdit = <>
         {modeEdit 
             ? <AiOutlineCheck {...iconeProps} className={styles['item-acao']} onClick={()=> {
@@ -55,7 +53,6 @@ const Item = ({ item, noCarrinho } : ItemProps ) => {
             : <AiFillEdit {...iconeProps} className={styles['item-acao']} onClick={()=>setModeEdit(!modeEdit)}/>
         }
     </>
-    console.log(item)
     return(
         <>
             <div className={noCarrinho ? styles.itemNoCarrinho : styles.item }>

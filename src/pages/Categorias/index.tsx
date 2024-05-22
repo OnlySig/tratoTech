@@ -23,6 +23,7 @@ const Categorias = () => {
         }
     })
     if(!categoriaHeader) return <h1>tem nada aqui po</h1>
+    console.log(categoriaHeader)
     return(
         <>
             <Header img={categoriaHeader.header} title={categoriaHeader.nome} descricao={categoriaHeader.descricao} className=""/>

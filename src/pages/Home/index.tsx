@@ -1,9 +1,13 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Header from "../../components/Header"
 import styles from "./Home.module.scss"
 import ImgInicial from "../../assets/inicial.png"
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ICategoria } from "interfaces/ICategoria";
+import { useEffect } from "react";
+import { buscarCategorias } from "../../store/reducers/categorias";
+import { buscarItens } from "../../store/reducers/itens";
 
 interface homeCategoria {
   categorias: ICategoria[]
@@ -11,6 +15,13 @@ interface homeCategoria {
 const Home = () => {
   const nav = useNavigate()
   const categorias : ICategoria[] = useSelector((state : homeCategoria) => state.categorias)
+  const dispatch = useDispatch<any>()
+
+  useEffect(()=> {
+    dispatch(buscarCategorias())
+    dispatch(buscarItens())
+  },[dispatch])
+  
   return (
     <div>
       <Header 
