@@ -1,4 +1,5 @@
 .item {
+    position: relative;
     background-color: white;
     border-radius: 10px;
     display: flex;
@@ -23,10 +24,26 @@
       p {
         color: #444;
       }
+      input {
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        margin-bottom: 6px;
+        width: 100%;
+        transition: .1s ease-in-out;
+        &:focus{
+          outline: 2px solid #1a95f0;
+        }
+      }
     }
 
     &-imagem {
+      height: 160px;
       margin: 0 auto;
+      img {
+        height: 100%;
+        width: 100%;
+      }
     }
   
     &-info {

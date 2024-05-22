@@ -27,6 +27,18 @@
     margin: 20px auto;
     flex: 1;
     width: 70%;
+    .container__input {
+        width: 100%;
+        input, select{
+            margin-bottom: 6px;
+        }
+    }
+    .input-erro {
+        outline: 2px solid red;
+    }
+    .mensagem-erro {
+        color: red;
+    }
     select, input {
         border: none;
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);

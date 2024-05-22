@@ -2,7 +2,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Logo from '../../assets/logo.svg'
 import styles from './NavBar.module.scss'
 import { RiShoppingCart2Line, RiShoppingCart2Fill } from 'react-icons/ri'
-import Input from '../../components/Input'
+import Input from '../InputBusca'
 
 const NavBar = () => {
   const { pathname } = useLocation()
@@ -18,7 +18,7 @@ const NavBar = () => {
         </div>
       </div>
       <div className={styles.busca} >
-        <Input placeholder="O que você procura?" id="inputBusca" isBusca/>
+        <Input placeholder="O que você procura?" id="inputBusca"/>
       </div>
       <div className={styles.icones}>
         <Link to={'/carrinho'}>

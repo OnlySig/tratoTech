@@ -16,25 +16,21 @@ const Carrinho = () => {
     const { compras, totalCompra } = useSelector((state : carrinhoProps)=> {
         let totalCompra = 0
         const carrinhoReduce = state.carrinho.reduce((itensCategoria : IItens[] , itemCarrinho) => {
-            console.log(itensCategoria)
             const regexp = new RegExp(state.busca, 'i')
             const item = state.itens.find(item => item.id === itemCarrinho.id)
-            console.log(itemCarrinho)
             if(item?.titulo.match(regexp)){
                 itensCategoria.push({
-                    id: item!.id,
-                    foto: item!.foto,
-                    preco: item!.preco,
-                    titulo: item!.titulo,
-                    categoria: item!.categoria,
-                    descricao: item!.descricao,
-                    favorito: item!.favorito,
+                    id: item.id,
+                    foto: item.foto,
+                    preco: item.preco,
+                    titulo: item.titulo,
+                    categoria: item.categoria,
+                    descricao: item.descricao,
+                    favorito: item.favorito,
                     quantidade: itemCarrinho.quantidade,
                 })
-                console.log('entrou!')
             }
-            totalCompra += (item!.preco * itemCarrinho.quantidade)
-            
+            if(item)totalCompra += (item.preco * itemCarrinho.quantidade)
             return itensCategoria
         }, [])
         return {
