@@ -17,7 +17,7 @@ const categoriasSlice = createSlice({
   name: 'categorias',
   initialState,
   reducers: {
-    addAllCategorias: (state, { payload })=> {
+    addAllCategorias: (_, { payload })=> {
       return payload
     },
     addOneCategoria: (state, { payload }) => {
