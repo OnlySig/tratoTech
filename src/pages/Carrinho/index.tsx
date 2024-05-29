@@ -1,10 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useSelector } from "react-redux"
 import Header from "../../components/Header"
 import styles from "./Carrinho.module.scss"
 import { IItens } from "interfaces/IItens"
 import Item from "../../components/Item"
 import { ICarrinho } from "interfaces/ICarrinho"
-
 
 interface carrinhoProps {
     carrinho: ICarrinho[]
@@ -38,6 +38,8 @@ const Carrinho = () => {
             totalCompra
         }
     })
+
+
     return (
         <div >
             <Header title="Carrinho de compras" descricao="Confira os produtos que você adicionou ao carrinho." className={styles.carrinhoHeader}/>

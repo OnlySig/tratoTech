@@ -6,8 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { ICategoria } from "interfaces/ICategoria";
 import { useEffect } from "react";
-import { buscarCategorias } from "../../store/reducers/categorias";
-import { buscarItens } from "../../store/reducers/itens";
+import { carregarCategorias } from "../../store/reducers/categorias";
 
 interface homeCategoria {
   categorias: ICategoria[]
@@ -15,11 +14,10 @@ interface homeCategoria {
 const Home = () => {
   const nav = useNavigate()
   const categorias : ICategoria[] = useSelector((state : homeCategoria) => state.categorias)
-  const dispatch = useDispatch<any>()
+  const dispatch = useDispatch()
 
   useEffect(()=> {
-    dispatch(buscarCategorias())
-    dispatch(buscarItens())
+    dispatch(carregarCategorias())
   },[dispatch])
   
   return (

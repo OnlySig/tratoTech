@@ -1,11 +1,14 @@
 import Header from '../../components/Header'
 import styles from './Anunciar.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
-import { ICategoria } from 'interfaces/ICategoria'
+import { ICategoria } from '../../interfaces/ICategoria'
 import Button from '../../components/Button'
 import { FieldValues, useForm } from 'react-hook-form'
 import { cadastrarItem } from '../../store/reducers/itens'
 import InputGeral from '../../components/InputGeral'
+import { useEffect } from 'react'
+import { carregarCategorias } from '../../store/reducers/categorias'
+import { toastDefault } from '../../hooks/toast'
 
 interface categoriasProps {
     categorias: ICategoria[]
@@ -17,7 +20,7 @@ type Inputs = {
     descricao: string
     foto: string
     preco: number
-  }
+}
 
 const Anunciar = () => {
     const dispatch = useDispatch()
@@ -30,7 +33,11 @@ const Anunciar = () => {
     const categorias = useSelector((state:categoriasProps)=>state.categorias.map(({ nome, id })=> ({ nome, id })))
     const submitarForm = (data:FieldValues) => {
         dispatch(cadastrarItem(data))
+        toastDefault({title:"Sucesso!", description: "Cadastro feito com sucesso!", status: "success"})
     }
+    useEffect(()=> {
+        dispatch(carregarCategorias())
+    },[dispatch])
     return (
         <div className={styles.container}>
             <Header title='Anuncie Aqui!' descricao='Anuncie seu produto no melhor site do Brasil!' className={styles.anunciarHeader}/>
